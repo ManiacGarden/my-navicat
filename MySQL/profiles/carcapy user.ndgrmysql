@@ -1,0 +1,305 @@
+{
+  "Version": 1.0,
+  "General": {
+    "TargetCatalog": "",
+    "TargetCloudInstanceName": "",
+    "TargetCloudProjectName": "",
+    "TargetCloudProjectOwnerUserID": "",
+    "TargetSchema": "tongqu",
+    "TargetServer": "腾讯测试",
+    "TargetServerType": "MYSQL",
+    "EmptyTargetTables": false,
+    "IsContinueOnError": false,
+    "RunMultipleInsert": true,
+    "UseExtendedInsert": true,
+    "UseTransaction": true
+  },
+  "TablesGenerateOrder": [
+    "tq_carcapy_user"
+  ],
+  "Tables": [
+    {
+      "Name": "tq_carcapy_user",
+      "objectType": "DataGenerationTable",
+      "Selected": true,
+      "VerifyStatus": "Normal",
+      "ErrMsg": "",
+      "Rows": 10000,
+      "Fields": [
+        {
+          "Name": "id",
+          "objectType": "DataGenerationTableField",
+          "Selected": true,
+          "VerifyStatus": "Normal",
+          "ErrMsg": "",
+          "GenDefaultVal": false,
+          "DefaultVal": "",
+          "DefaultValPercentage": 5.0,
+          "GenNullVal": false,
+          "NullValPercentage": 5.0,
+          "IsUnique": false,
+          "ApplyGenCaseType": false,
+          "GenCaseType": "Capitalization",
+          "IsGenerateIndependently": false,
+          "Generator": {
+            "objectType": "DataGenerationPropertyClassSequence",
+            "IsUnsigned": false,
+            "StartVal": 13,
+            "CustomMinVal": 1,
+            "CustomMaxVal": 2147483647,
+            "Increment": 1,
+            "UseCustomMinVal": false,
+            "UseCustomMaxVal": false,
+            "Cycle": false
+          }
+        },
+        {
+          "Name": "platform",
+          "objectType": "DataGenerationTableField",
+          "Selected": true,
+          "VerifyStatus": "Normal",
+          "ErrMsg": "",
+          "GenDefaultVal": false,
+          "DefaultVal": "0",
+          "DefaultValPercentage": 5.0,
+          "GenNullVal": false,
+          "NullValPercentage": 5.0,
+          "IsUnique": false,
+          "ApplyGenCaseType": false,
+          "GenCaseType": "Capitalization",
+          "IsGenerateIndependently": false,
+          "Generator": {
+            "objectType": "DataGenerationPropertyClassNumber",
+            "NumStart": 1.0,
+            "NumEnd": 2.0,
+            "NumType": "Integer",
+            "NumDecimalPlace": 2
+          }
+        },
+        {
+          "Name": "open_id",
+          "objectType": "DataGenerationTableField",
+          "Selected": true,
+          "VerifyStatus": "Normal",
+          "ErrMsg": "",
+          "GenDefaultVal": false,
+          "DefaultVal": "",
+          "DefaultValPercentage": 5.0,
+          "GenNullVal": false,
+          "NullValPercentage": 5.0,
+          "IsUnique": false,
+          "ApplyGenCaseType": false,
+          "GenCaseType": "Capitalization",
+          "IsGenerateIndependently": false,
+          "Generator": {
+            "objectType": "DataGenerationPropertyClassRegex",
+            "RegexString": "[A-Za-z0-9]{10}",
+            "RawMode": false
+          }
+        },
+        {
+          "Name": "head_url",
+          "objectType": "DataGenerationTableField",
+          "Selected": true,
+          "VerifyStatus": "Normal",
+          "ErrMsg": "",
+          "GenDefaultVal": false,
+          "DefaultVal": "",
+          "DefaultValPercentage": 5.0,
+          "GenNullVal": false,
+          "NullValPercentage": 5.0,
+          "IsUnique": false,
+          "ApplyGenCaseType": false,
+          "GenCaseType": "Capitalization",
+          "IsGenerateIndependently": false,
+          "Generator": {
+            "objectType": "DataGenerationPropertyClassUrl",
+            "Subdomains": [
+              "auth.",
+              "drive.",
+              "image.",
+              "video.",
+              "www."
+            ],
+            "TopLevelDomains": [
+              ".biz",
+              ".co.jp",
+              ".com",
+              ".cn",
+              ".info",
+              ".jp",
+              ".net",
+              ".org",
+              ".us",
+              ".xyz"
+            ]
+          }
+        },
+        {
+          "Name": "nick_name",
+          "objectType": "DataGenerationTableField",
+          "Selected": true,
+          "VerifyStatus": "Normal",
+          "ErrMsg": "",
+          "GenDefaultVal": false,
+          "DefaultVal": "",
+          "DefaultValPercentage": 5.0,
+          "GenNullVal": false,
+          "NullValPercentage": 5.0,
+          "IsUnique": false,
+          "ApplyGenCaseType": false,
+          "GenCaseType": "Capitalization",
+          "IsGenerateIndependently": false,
+          "Generator": {
+            "objectType": "DataGenerationPropertyClassStringName",
+            "FormatType": "Fullname",
+            "LanguageTypes": [
+              "ChinesePinyin",
+              "ChineseEnglish",
+              "JapaneseEnglish",
+              "English"
+            ]
+          }
+        },
+        {
+          "Name": "farm_level",
+          "objectType": "DataGenerationTableField",
+          "Selected": true,
+          "VerifyStatus": "Normal",
+          "ErrMsg": "",
+          "GenDefaultVal": false,
+          "DefaultVal": "0",
+          "DefaultValPercentage": 5.0,
+          "GenNullVal": false,
+          "NullValPercentage": 5.0,
+          "IsUnique": false,
+          "ApplyGenCaseType": false,
+          "GenCaseType": "Capitalization",
+          "IsGenerateIndependently": false,
+          "Generator": {
+            "objectType": "DataGenerationPropertyClassNumber",
+            "NumStart": 0.0,
+            "NumEnd": 1000.0,
+            "NumType": "Integer",
+            "NumDecimalPlace": 2
+          }
+        },
+        {
+          "Name": "farm_exp",
+          "objectType": "DataGenerationTableField",
+          "Selected": true,
+          "VerifyStatus": "Normal",
+          "ErrMsg": "",
+          "GenDefaultVal": false,
+          "DefaultVal": "0",
+          "DefaultValPercentage": 5.0,
+          "GenNullVal": false,
+          "NullValPercentage": 5.0,
+          "IsUnique": false,
+          "ApplyGenCaseType": false,
+          "GenCaseType": "Capitalization",
+          "IsGenerateIndependently": false,
+          "Generator": {
+            "objectType": "DataGenerationPropertyClassNumber",
+            "NumStart": 0.0,
+            "NumEnd": 1000.0,
+            "NumType": "Integer",
+            "NumDecimalPlace": 2
+          }
+        },
+        {
+          "Name": "builds_level",
+          "objectType": "DataGenerationTableField",
+          "Selected": true,
+          "VerifyStatus": "Normal",
+          "ErrMsg": "",
+          "GenDefaultVal": false,
+          "DefaultVal": "0",
+          "DefaultValPercentage": 5.0,
+          "GenNullVal": false,
+          "NullValPercentage": 5.0,
+          "IsUnique": false,
+          "ApplyGenCaseType": false,
+          "GenCaseType": "Capitalization",
+          "IsGenerateIndependently": false,
+          "Generator": {
+            "objectType": "DataGenerationPropertyClassNumber",
+            "NumStart": 0.0,
+            "NumEnd": 1000.0,
+            "NumType": "Integer",
+            "NumDecimalPlace": 2
+          }
+        },
+        {
+          "Name": "store_coins",
+          "objectType": "DataGenerationTableField",
+          "Selected": true,
+          "VerifyStatus": "Normal",
+          "ErrMsg": "",
+          "GenDefaultVal": false,
+          "DefaultVal": "0",
+          "DefaultValPercentage": 5.0,
+          "GenNullVal": false,
+          "NullValPercentage": 5.0,
+          "IsUnique": false,
+          "ApplyGenCaseType": false,
+          "GenCaseType": "Capitalization",
+          "IsGenerateIndependently": false,
+          "Generator": {
+            "objectType": "DataGenerationPropertyClassNumber",
+            "NumStart": 0.0,
+            "NumEnd": 1000.0,
+            "NumType": "Integer",
+            "NumDecimalPlace": 2
+          }
+        },
+        {
+          "Name": "coins",
+          "objectType": "DataGenerationTableField",
+          "Selected": true,
+          "VerifyStatus": "Normal",
+          "ErrMsg": "",
+          "GenDefaultVal": false,
+          "DefaultVal": "0",
+          "DefaultValPercentage": 5.0,
+          "GenNullVal": false,
+          "NullValPercentage": 5.0,
+          "IsUnique": false,
+          "ApplyGenCaseType": false,
+          "GenCaseType": "Capitalization",
+          "IsGenerateIndependently": false,
+          "Generator": {
+            "objectType": "DataGenerationPropertyClassNumber",
+            "NumStart": 0.0,
+            "NumEnd": 1000.0,
+            "NumType": "Integer",
+            "NumDecimalPlace": 2
+          }
+        },
+        {
+          "Name": "level_index",
+          "objectType": "DataGenerationTableField",
+          "Selected": true,
+          "VerifyStatus": "Normal",
+          "ErrMsg": "",
+          "GenDefaultVal": false,
+          "DefaultVal": "0",
+          "DefaultValPercentage": 5.0,
+          "GenNullVal": false,
+          "NullValPercentage": 5.0,
+          "IsUnique": false,
+          "ApplyGenCaseType": false,
+          "GenCaseType": "Capitalization",
+          "IsGenerateIndependently": false,
+          "Generator": {
+            "objectType": "DataGenerationPropertyClassNumber",
+            "NumStart": 0.0,
+            "NumEnd": 1000.0,
+            "NumType": "Integer",
+            "NumDecimalPlace": 2
+          }
+        }
+      ]
+    }
+  ]
+}

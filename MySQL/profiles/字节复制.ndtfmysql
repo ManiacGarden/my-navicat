@@ -1,0 +1,125 @@
+{
+  "Version": 1.1,
+  "General": {
+    "FileSameAsSource": true,
+    "SourceCatalog": "",
+    "SourceCloudInstanceName": "",
+    "SourceProject": "",
+    "SourceProjectOwnerNavicatID": "",
+    "SourceSchema": "tongqu",
+    "SourceServer": "腾讯生产",
+    "SourceServerType": "MYSQL",
+    "TargetCatalog": "",
+    "TargetCloudInstanceName": "",
+    "TargetFileFormatEncoding": 65001,
+    "TargetFileFormatServerEdition": 0,
+    "TargetFileFormatServerType": "MYSQL",
+    "TargetFileFormatServerVersion": 80099,
+    "TargetFilePath": "",
+    "TargetProject": "",
+    "TargetProjectOwnerNavicatID": "",
+    "TargetSchema": "tongqu",
+    "TargetServer": "腾讯测试",
+    "TargetServerType": "MYSQL",
+    "TransferToFile": false,
+    "ContinueOnError": false,
+    "ConvertObjName": false,
+    "ConvertObjNameUpper": false,
+    "CreateDatabase": true,
+    "CreateIndexes": true,
+    "CreateRecords": true,
+    "CreateTables": true,
+    "CreateTriggers": true,
+    "DropTables": true,
+    "DropWithCascade": false,
+    "IgnoreBlobForFile": false,
+    "IncludeAutoIncrement": true,
+    "IncludeCharset": true,
+    "IncludeChecks": true,
+    "IncludeDefiner": false,
+    "IncludeEngine": true,
+    "IncludeExcludes": true,
+    "IncludeForeignKeys": true,
+    "IncludeOtherTableOptions": false,
+    "IncludeOwnerTo": false,
+    "IncludeRules": true,
+    "IncludeSchemaNameInStatements": false,
+    "IncludeStorage": false,
+    "IncludeUniques": true,
+    "LockSourceTables": false,
+    "LockTargetTables": false,
+    "RunMultipleInsertStatements": true,
+    "UseBlobHex": true,
+    "UseCompleteInsert": true,
+    "UseDDL": false,
+    "UseDelayedInsert": false,
+    "UseExtendedInsert": true,
+    "UseSingleTransaction": false,
+    "UseTransaction": true
+  },
+  "Tables": {
+    "SelectAll": false,
+    "Selected": [
+      {
+        "Name": "tq_admin_tt_promotion",
+        "ObjectType": "Table_MYSQL",
+        "Advanced": {
+          "TargetTableName": "tq_admin_tt_promotion",
+          "UseAllFields": true,
+          "FieldMappings": [],
+          "UseAllRows": false,
+          "EnableNumberOfRowsPerBatch": false,
+          "NumberOfRowsPerBatch": 1000,
+          "RecordsetConditions": [
+            "`date` >= '2025-06-07'"
+          ],
+          "UseTransactionForEachRecordset": false
+        }
+      },
+      {
+        "Name": "tt_game_analysis_data",
+        "ObjectType": "Table_MYSQL",
+        "Advanced": {
+          "TargetTableName": "tt_game_analysis_data",
+          "UseAllFields": true,
+          "FieldMappings": [],
+          "UseAllRows": false,
+          "EnableNumberOfRowsPerBatch": false,
+          "NumberOfRowsPerBatch": 1000,
+          "RecordsetConditions": [
+            "`date` >= '2025-06-07'"
+          ],
+          "UseTransactionForEachRecordset": false
+        }
+      },
+      {
+        "Name": "tt_game_income_data",
+        "ObjectType": "Table_MYSQL",
+        "Advanced": {
+          "TargetTableName": "tt_game_income_data",
+          "UseAllFields": true,
+          "FieldMappings": [],
+          "UseAllRows": false,
+          "EnableNumberOfRowsPerBatch": false,
+          "NumberOfRowsPerBatch": 1000,
+          "RecordsetConditions": [
+            "`date` >= '2025-06-07'"
+          ],
+          "UseTransactionForEachRecordset": false
+        }
+      }
+    ]
+  },
+  "Views": {
+    "SelectAll": false,
+    "Selected": []
+  },
+  "Functions": {
+    "SelectAll": false,
+    "Selected": []
+  },
+  "Events": {
+    "SelectAll": false,
+    "Selected": []
+  }
+}
