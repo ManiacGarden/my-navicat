@@ -1,0 +1,1 @@
+ SELECT * FROM `tq_minesweeper_rank` WHERE `tq_minesweeper_rank`.`platform` = 1 AND `tq_minesweeper_rank`.`level` = 1 ORDER BY time desc LIMIT 20

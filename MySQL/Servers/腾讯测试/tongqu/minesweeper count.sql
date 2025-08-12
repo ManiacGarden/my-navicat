@@ -1,0 +1,1 @@
+SELECT count(*) FROM `tq_minesweeper_rank` WHERE time < 0.550000 and platform = 1 and level = 3

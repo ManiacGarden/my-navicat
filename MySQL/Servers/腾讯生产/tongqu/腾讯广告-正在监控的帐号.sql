@@ -1,0 +1,1 @@
+SELECT * from tq_tcad_oath where app_id in (SELECT appid from tq_tcad_game WHERE type = 1)

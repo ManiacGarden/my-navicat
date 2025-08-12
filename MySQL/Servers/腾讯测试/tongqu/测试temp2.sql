@@ -1,0 +1,1 @@
+SELECT * from tq_all_user where openid = 'or0_j5FpEzgNF9gj6BO15Y3sOJZw'

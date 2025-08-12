@@ -1,0 +1,1 @@
+SELECT * FROM tq_tcad_ad_data_all where ad_id in (65136255,65136257,65136258)

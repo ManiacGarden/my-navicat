@@ -1,0 +1,1 @@
+SELECT * FROM game where name like '%方块解压王%'

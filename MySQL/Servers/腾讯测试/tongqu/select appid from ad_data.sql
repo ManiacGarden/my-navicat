@@ -1,0 +1,1 @@
+select * from tq_tcad_ad_data d join tq_tcad_ad_id i on d.app_id = i.app_id where d.ad_id = 1 ORDER BY d.create_at desc limit 3

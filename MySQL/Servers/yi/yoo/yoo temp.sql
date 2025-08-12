@@ -1,0 +1,1 @@
+alter table tasker_device add column `last_time_batt` int NOT NULL DEFAULT '-1' COMMENT '上一次报告的剩余电量，-1为无数据'

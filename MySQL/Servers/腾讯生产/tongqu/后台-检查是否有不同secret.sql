@@ -1,0 +1,1 @@
+select w.app_id, w.secret, t.secret from web.game w left join tongqu.game t on w.app_id=t.app_id WHERE w.secret!=t.secret
