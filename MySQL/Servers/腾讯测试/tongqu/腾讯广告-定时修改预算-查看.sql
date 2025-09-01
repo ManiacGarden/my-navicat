@@ -1,4 +1,4 @@
-SELECT account_id, GROUP_CONCAT(scheduled_weekday), hours, budgets
+SELECT account_id, GROUP_CONCAT(scheduled_weekday) weekdays, hours, budgets
 from (SELECT account_id,
              scheduled_weekday,
              GROUP_CONCAT(scheduled_hour ORDER BY scheduled_hour ASC) hours, GROUP_CONCAT(daily_budget ORDER BY scheduled_hour ASC) budgets

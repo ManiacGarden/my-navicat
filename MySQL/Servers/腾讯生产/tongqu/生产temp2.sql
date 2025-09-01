@@ -1,1 +1,2 @@
-SELECT * FROM tq_tcad_ad_data_all where ad_id in (65136255,65136257,65136258)
+SELECT * from game WHERE name='猪了个猪大师';
+SELECT * from game WHERE app_id='tt8877feca177e85c302';

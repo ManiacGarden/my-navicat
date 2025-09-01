@@ -1,7 +1,5 @@
 SELECT a.app_id,
 			 a.advertiser_id,
-			 h.tag,
-			 a.date_at,
 			 a.monetize_ad_income,
 			 a.monetize_ad_income_d3,
 			 a.monetize_ad_income_d7,
@@ -14,7 +12,6 @@ SELECT a.app_id,
 			 r.click_cnt
 from (
     SELECT app_id,
-						date_at,
 				advertiser_id,
          sum(monetize_ad_income)    monetize_ad_income,
          sum(monetize_ad_income_d3) monetize_ad_income_d3,
@@ -25,23 +22,20 @@ from (
          sum(monetize_uv_d1)        monetize_uv_d1
     from tq_ecpm_wx_amp
 --     where date_at = '2025-08-15'
-		WHERE date_at BETWEEN '2025-07-01' and '2025-08-26'
+		WHERE date_at BETWEEN '2025-08-10' and '2025-08-26'
 		and app_id = 'wx2bd39bc6b432744f'
-    group by advertiser_id, date_at
+    group by advertiser_id
 ) a
 left join (
     SELECT app_id,
-		date_at,
            advertiser_id,
            sum(stat_cost) stat_cost,
            sum(show_cnt)  show_cnt,
            sum(click_cnt) click_cnt
     from tq_ecpm_wx_ad_realtime
 --     where date_at = '2025-08-15'
-		WHERE date_at BETWEEN '2025-07-01' and '2025-08-26'
+		WHERE date_at BETWEEN '2025-08-10' and '2025-08-26'
 		and app_id = 'wx2bd39bc6b432744f'
-    GROUP BY advertiser_id, date_at
-) r
-on a.advertiser_id = r.advertiser_id and a.date_at = r.date_at
-left join tq_ecpm_wx_hold h on a.advertiser_id = h.advertiser_id
-order by a.date_at asc, a.monetize_ad_income desc
+    GROUP BY advertiser_id
+) r 
+on a.advertiser_id = r.advertiser_id

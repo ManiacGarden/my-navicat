@@ -1,13 +1,18 @@
-drop table tq_warrior_user_catch;
-CREATE TABLE `tq_warrior_user_catch`
-(
-    `id`          int                                                            NOT NULL AUTO_INCREMENT,
-    `uid`         varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci  NOT NULL DEFAULT '' COMMENT '用户sid',
-    `player_data` varchar(3000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '用户数据',
-    `platform`    tinyint(1) NOT NULL DEFAULT '0' COMMENT '平台值',
-    `country`     varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci   NOT NULL DEFAULT '' COMMENT '地区',
-    `update_at`   datetime                                                       NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-    `create_at`   datetime                                                       NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-    PRIMARY KEY (`id`),
-    KEY           `sid` (`uid`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='catch yoo 勇士保卫战 用户表';
+    SELECT app_id,
+						date_at,
+				advertiser_id,
+         sum(advertise_ad_cost) advertise_ad_cost,
+         sum(monetize_ad_income)      monetize_ad_income,
+         sum(user_total_cnt)    user_total_cnt,
+         sum(user_retention_cnt) user_retention_cnt
+    from tq_ecpm_wx_roi_tt_account
+		where date_after = 0
+-- 		case 1:
+		and date_at = '2025-08-13'
+-- 		case 2:
+-- 		and date_at BETWEEN '2025-07-01' and '2025-08-27' and app_id = 'wx2bd39bc6b432744f'
+-- 		case 3:
+-- 		and date_at BETWEEN '2025-07-01' and '2025-08-27'
+		
+    group by app_id, date_at
+		order by date_at asc, sum(advertise_ad_cost) desc

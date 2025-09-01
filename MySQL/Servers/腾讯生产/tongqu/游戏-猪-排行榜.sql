@@ -1,3 +1,1 @@
-explain SELECT count(*) FROM `tq_pig_rank` 
-
-WHERE `tq_pig_rank`.`platform` = 1 AND score > 10
+SELECT count(*) FROM `tq_pig_rank` WHERE `tq_pig_rank`.`platform` = 6 AND score > 4
