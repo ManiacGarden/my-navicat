@@ -11,7 +11,7 @@ SELECT ta.app_id,
 			 r.show_cnt,
 			 r.click_cnt
 from (
--- 微信后台的计划-广告表
+-- 微信后台T+1的计划-广告表
     SELECT app_id,
 						date_at,
 				advertiser_id,

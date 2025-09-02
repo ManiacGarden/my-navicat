@@ -1,21 +1,46 @@
 
+-- 1: 单天所有游戏
+-- 2: 单个游戏历史
+-- 3: 多个游戏多天
+-- 4: 单天游戏总和
+-- 5: 单个游戏历史总和
+-- 6: 多个游戏多天总和
 SELECT	t.app_id,
-				g.`name` app_name,
+				g.name app_name,
 				t.date_at,
-				ta.monetize_ad_income,
-				ta.user_total_cnt,
-				ta.user_retention_cnt,
 				t.ad_fund,
 				t.income,
+				ta.monetize_ad_income,	
+				ta.user_total_cnt,
+				ta.user_retention_cnt,
+				ta.advertise_ad_cost,
 				r.stat_cost,
 				r.show_cnt,
 				r.click_cnt
-from tq_ecpm_wx_game_data t
+from (
+	SELECT	app_id,
+					date_at,
+					sum(ad_fund) ad_fund,
+					sum(income) income
+	from tq_ecpm_wx_game_data
+-- 	case 1:
+-- 	where date_at = '2025-08-13' group by app_id, date_at ORDER BY income desc
+	-- case 2:
+where app_id = 'wx8f847f037d4100a7' and date_at BETWEEN '2025-07-01' and '2025-08-31' group by app_id, date_at ORDER BY date_at asc
+-- case 3:
+-- where date_at BETWEEN '2025-07-01' and '2025-08-31' group by app_id ORDER BY sum(income) desc
+-- case 4:
+-- where date_at = '2025-08-13' group by date_at 
+-- case 5:
+-- where app_id = 'wx8f847f037d4100a7' and date_at BETWEEN '2025-07-01' and '2025-08-31' group by app_id
+-- case 6:
+-- where date_at BETWEEN '2025-07-01' and '2025-08-31'
+) t
+left join game g on t.app_id = g.app_id
 left join (
 -- 微信后台的计划-广告表
     SELECT app_id,
 						date_at,
-				advertiser_id,
          sum(advertise_ad_cost) advertise_ad_cost,
          sum(monetize_ad_income)      monetize_ad_income,
          sum(user_total_cnt)    user_total_cnt,
@@ -25,9 +50,22 @@ left join (
 -- 		case 1:
 -- 		and date_at = '2025-08-13' group by app_id, date_at
 -- 		case 2:
--- 			and app_id = 'wx2bd39bc6b432744f' and date_at BETWEEN '2025-07-01' and '2025-08-31' group by app_id, date_at order by date_at asc
+			and app_id = 'wx8f847f037d4100a7' and date_at BETWEEN '2025-07-01' and '2025-08-31' group by app_id, date_at order by date_at asc
+-- 		case 3:
+-- 	 and date_at BETWEEN '2025-07-01' and '2025-08-31' group by app_id order by sum(advertise_ad_cost) desc
+-- 		case 4:
+-- 		and date_at = '2025-08-13' group by date_at
+-- 		case 5:
+-- 			and app_id = 'wx8f847f037d4100a7' and date_at BETWEEN '2025-07-01' and '2025-08-31' group by app_id
+-- 		case 6:
+-- 	 and date_at BETWEEN '2025-07-01' and '2025-08-31'
 ) ta
+-- case 1,2:
 on t.app_id = ta.app_id and t.date_at = ta.date_at
+-- case 3:
+-- on t.app_id = ta.app_id
+-- case 4,5,6:
+-- on 1
 left join (
     SELECT app_id,
            date_at,
@@ -38,26 +76,22 @@ left join (
 -- case 1:
 --  where date_at = '2025-08-13' group by app_id, date_at
 -- case 2:
-where app_id = 'wx2bd39bc6b432744f' and date_at BETWEEN '2025-07-01' and '2025-08-31'
-group by app_id, date_at order by date_at asc
+where app_id = 'wx8f847f037d4100a7' and date_at BETWEEN '2025-07-01' and '2025-08-31' group by app_id, date_at order by date_at asc
 -- case 3:
--- where date_at BETWEEN '2025-08-10' and '2025-08-24' group by app_id
+-- where date_at BETWEEN '2025-07-01' and '2025-08-31' group by app_id order by sum(stat_cost) desc
+-- case 4:
+--  where date_at = '2025-08-13' group by date_at
+-- case 5:
+-- where app_id = 'wx8f847f037d4100a7' and date_at BETWEEN '2025-07-01' and '2025-08-31' group by app_id
+-- case 6:
+-- where date_at BETWEEN '2025-07-01' and '2025-08-31'
 ) r
 -- case1, case2:
 on t.app_id = r.app_id and t.date_at = r.date_at
--- case3:
--- on a.app_id = r.app_id
-
-left join game g on t.app_id = g.app_id
-
--- case 1:
--- where t.date_at = '2025-08-13'
--- ORDER BY r.stat_cost desc
--- case 2:
-where t.app_id = 'wx2bd39bc6b432744f' and t.date_at BETWEEN '2025-07-01' and '2025-08-31'
-group by t.app_id, t.date_at ORDER BY t.date_at asc
 -- case 3:
--- where t.date_at BETWEEN '2025-08-10' and '2025-08-24' group by t.app_id ORDER BY r.stat_cost desc
+-- on t.app_id = r.app_id
+-- case 4,5,6:
+-- on 1
 
 
 
@@ -87,7 +121,7 @@ group by t.app_id, t.date_at ORDER BY t.date_at asc
 -- --  where date_at = '2025-08-13'
 -- -- group by app_id, date_at
 -- -- case 2:
--- -- where app_id = 'wx2bd39bc6b432744f'
+-- -- where app_id = 'wx8f847f037d4100a7'
 -- -- group by app_id, date_at
 -- -- case 3:
 -- 		where date_at BETWEEN '2025-08-10' and '2025-08-24'
